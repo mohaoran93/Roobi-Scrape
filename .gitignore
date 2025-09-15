@@ -1,0 +1,6 @@
+*/__pycache__/*.pyc
+__pycache__/*.pyc
+temp/*
+log/*
+*/xbytes/__pycache__/*.pyc
+talabat/xbytes/__pycache__/call_xbytes.cpython-311.pyc

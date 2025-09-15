@@ -7,6 +7,7 @@ import logging
 import h3
 from datetime import datetime
 from elasticsearch import helpers
+import traceback
 
 from talabat.xbytes.call_xbytes import (
     get_stores,
@@ -83,6 +84,7 @@ def run_talabat(latitude, longitude, resolution=10, clear_existing=False, recrea
             json.dump(stores, f, indent=4)
     except Exception as e:
         logger.error(f"Error fetching stores: {e}")
+        traceback.print_exc()
         return
 
     # Step 2: process each store

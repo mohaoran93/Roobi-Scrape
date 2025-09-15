@@ -10,10 +10,16 @@ def get_stores(latitude, longitude):
               "endpoint": "nownow_uae_app_master_data"}
     response = requests.get(base_url, params=params).json()
     status = response.get("status")
-    stores = response.get("results", {}).get("data", {}).get("Stores", {}).get("Vendors", [])
+    if status != 200:
+        print(f"response from xbytes is not 200: {response.json()}")
+    try:
+        stores = response.get("results", {}).get("data", {}).get("Stores", {}).get("Vendors", [])
+    except:
+        print(f"exception from xbytes {response}")
+        return []
     if len(stores) == 0 or status != 200:
         print(f"talabat xbytes No stores found {latitude}, {longitude}")
-        return []
+        return []        
     return stores
 
 def get_store_categories(latitude, longitude, store_id):

@@ -8,7 +8,7 @@ PRIORITY="50"
 TEST_MODE="true"
 
 # Index management flags
-RECREATE_INDEXES="true"  # Set to "true" to recreate all indexes
+RECREATE_INDEXES="false" # Set to "true" to recreate all indexes
 CLEAR_EXISTING="false"   # Set to "true" to clear existing data (ignored if RECREATE_INDEXES is true)
 
 echo "Starting scraper pipeline..."
